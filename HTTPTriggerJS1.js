@@ -39,7 +39,7 @@ function SendToAWSCam(cam_message, alarm_headers, context) {
     };
     _.set(cam_message, 'domain.provenance. AzureAlarmIngest', {
         informed_at: new Date().toISOString(),
-        informer: 'ngmalarmingest.api.alarms.monitor.azure.compass.thomsonreuters.com/api/alarm-ingest'
+        informer: 'azure_cam_function_app'
     });
     var stringified_alarm = JSON.stringify(cam_message);
 
