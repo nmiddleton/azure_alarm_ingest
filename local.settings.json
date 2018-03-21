@@ -1,0 +1,20 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "WEBSITE_SLOT_NAME": "Production",
+    "FUNCTIONS_EXTENSION_VERSION": "~1",
+    "ScmType": "GitHub",
+    "AzureWebJobsSecretStorageType": "Blob",
+    "WEBSITE_AUTH_ENABLED": "False",
+    "REMOTEDEBUGGINGVERSION": "11.0.611103.400",
+    "FUNCTION_APP_EDIT_MODE": "readwrite",
+    "AzureWebJobsDashboard": "DefaultEndpointsProtocol=https;AccountName=eastus2compassalarmmgmt;AccountKey=uq2/D2uzm2lnL+l+qtPYjWq6kCKyRUjheUnQZbmiWfKrUZrREn9jErbmzYeBmeqPQhJI/FwenSP/SB/M9cCvRQ==",
+    "WEBSITE_NODE_DEFAULT_VERSION": "6.5.0",
+    "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING": "DefaultEndpointsProtocol=https;AccountName=eastus2compassalarmmgmt;AccountKey=uq2/D2uzm2lnL+l+qtPYjWq6kCKyRUjheUnQZbmiWfKrUZrREn9jErbmzYeBmeqPQhJI/FwenSP/SB/M9cCvRQ==",
+    "WEBSITE_CONTENTSHARE": "ngmalarmingest-93e92dd8",
+    "WEBSITE_AUTH_AUTO_AAD": "False",
+    "WEBSITE_SITE_NAME": "ngmalarmingest",
+    "WEBSITE_AUTH_LOGOUT_PATH": "/.auth/logout",
+    "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=eastus2compassalarmmgmt;AccountKey=uq2/D2uzm2lnL+l+qtPYjWq6kCKyRUjheUnQZbmiWfKrUZrREn9jErbmzYeBmeqPQhJI/FwenSP/SB/M9cCvRQ=="
+  }
+}

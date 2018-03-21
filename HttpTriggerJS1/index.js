@@ -55,7 +55,7 @@ function https_request(options, json_stringified_data, context) {
     options.pathname = '/alarm-ingest';
     options.host= 'api.alarms.monitor.aws.compass.thomsonreuters.com';
     options.port = '443';
-        context.log('OPTIONS', options);
+    context.log('OPTIONS', options);
     var deferred = q.defer();
 
     var req = https.request(options, function (res) {
