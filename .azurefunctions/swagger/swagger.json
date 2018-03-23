@@ -119,7 +119,17 @@
         }
       },
       "example": {
-        "informer": "wilma"
+        "reporter": "sensu",
+        "end_point_id": "c844ctsbmnpp1",
+        "alarm_type": "host",
+        "status": "CRITICAL",
+        "category": "azure_aws_2",
+        "message": "Ignore this alarm azure_aws_2",
+        "informer": "c844ctsbmnpp1",
+        "occurred_at": "2018-03-20T14:00:45Z",
+        "context": {
+          "environment": "Pre-Production"
+        }
       }
     }
   },
