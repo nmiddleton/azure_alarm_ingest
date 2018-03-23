@@ -63,7 +63,9 @@
         },
         "security": [
           {
-            "api_key": []
+            "api_key": [
+
+            ]
           }
         ]
       }
@@ -119,17 +121,14 @@
         }
       },
       "example": {
-        "reporter": "sensu",
-        "end_point_id": "c844ctsbmnpp1",
+        "reporter": "azure",
+        "end_point_id": "some_host_or_application_id",
         "alarm_type": "host",
-        "status": "CRITICAL",
-        "category": "azure_aws_2",
-        "message": "Ignore this alarm azure_aws_2",
-        "informer": "c844ctsbmnpp1",
-        "occurred_at": "2018-03-20T14:00:45Z",
-        "context": {
-          "environment": "Pre-Production"
-        }
+        "status": "[ CRITICAL | WARNING | OK]",
+        "category": "the_type_of_alarm",
+        "message": "Ignore this test from Azure",
+        "informer": "some_host_or_application_id",
+        "occurred_at": "2018-03-23T14:00:45Z"
       }
     }
   },
