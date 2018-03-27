@@ -8,24 +8,50 @@ var
 
 module.exports = function (context, req) {
     context.log('JavaScript HTTP trigger function processed a request.');
+    var failed_body = validAlarm(req.body, context);
 
-    if (req.query.name || (req.body && req.body.reporter)) {
-        context.res = {
-            // status: 200, /* Defaults to 200 */
-            body: "Hello " + (req.query.reporter || req.body.reporter)
-        };
-        // SendToCam(req.body);
-        context.log('Sending To CAM');
-        SendToAWSCam(req.body, req.headers, context);
+    if (req.body && failed_body.length === 0) {
+        SendToAWSCam(req.body, req.headers, context)
+            .then(function (aws_response) {
+                var azure_res_body = {
+                    ingested: false
+                };
+                if (aws_response.statusCode === 200) {
+                    azure_res_body.ingested = true;
+                }
+                context.res = {
+                    status: aws_response.statusCode,
+                    body: azure_res_body
+                };
+                context.done();
+            })
+            .catch(function (error) {
+                context.res = {
+                    status: 400,
+                    body: 'Ingestion error: ' + error
+                };
+                context.done();
+            });
     }
     else {
         context.res = {
             status: 400,
-            body: "Please pass a name on the query string or in the request body"
+            body: 'Alarm failed validation. Missing or malformed properties: ' + failed_body
         };
+        context.done();
     }
-    context.done();
+
 };
+function validAlarm (body){
+    var failed_args = [],
+        required_strings = ['reporter', 'end_point_id', 'alarm_type', 'status', 'category', 'message', 'informer', 'occurred_at'];
+    _.forEach(required_strings, function (required) {
+        if (! _.has(body, required)){
+            failed_args.push(required);
+        }
+    });
+    return failed_args;
+}
 
 function SendToAWSCam(cam_message, alarm_headers, context) {
     context.log('SendToAWSCam', alarm_headers['x-api-key']);
@@ -34,7 +60,7 @@ function SendToAWSCam(cam_message, alarm_headers, context) {
         headers: {
             'Content-Type': 'application/json',
             'x-api-key': 'zOHtS8xIOE8In1uP7ghbP8jmUdVMvoMB4finmmPU',
-            'x-api-application-key': alarm_headers['x-api-key'] || null
+            'x-api-application-key': alarm_headers['ocim'] || null
         }
     };
     _.set(cam_message, 'domain.provenance. AzureAlarmIngest', {
@@ -68,7 +94,7 @@ function https_request(options, json_stringified_data, context) {
         });
         res.on('end', function () {
             context.log('RESOLVED', res.statusCode, response);
-            deferred.resolve({response: response, headers: res.headers, statusCode: res.statusCode});
+            deferred.resolve({response: response, headers: res.headers, statusCode: res.statusCode, context: context});
         });
         res.on('error', function (error) {
             context.log('HTTPS error:', error);
