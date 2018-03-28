@@ -8,9 +8,7 @@ var
 
 module.exports = function (context, req) {
     context.log('JavaScript HTTP trigger function processed a request.');
-    var failed_body = validAlarm(req.body, context);
-
-    if (req.body && failed_body.length === 0) {
+    if (req.body ) {
         SendToAWSCam(req.body, req.headers, context)
             .then(function (aws_response) {
                 var azure_res_body = {
@@ -42,16 +40,6 @@ module.exports = function (context, req) {
     }
 
 };
-function validAlarm (body){
-    var failed_args = [],
-        required_strings = ['reporter', 'end_point_id', 'alarm_type', 'status', 'category', 'message', 'informer', 'occurred_at'];
-    _.forEach(required_strings, function (required) {
-        if (! _.has(body, required)){
-            failed_args.push(required);
-        }
-    });
-    return failed_args;
-}
 
 function SendToAWSCam(cam_message, alarm_headers, context) {
     context.log('SendToAWSCam', alarm_headers['x-api-key']);
