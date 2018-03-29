@@ -3,12 +3,27 @@
 const
     publisher = require('../tasks/publisher'),
     validator = require('../tasks/validator'),
+    _         = require('../../lodash'),
     Converter = require('../tasks/converter');
 
 exports.ingest = function (req, context) {
     context.log('Ingest:', req.body);
+    if (_.has(req.body, 'context.timestamp')){
+        context.log('Has timestamp:', req.body.context);
+        if (! _.isString(req.body.context.timestamp)){
+            context.log('Timestamp needs quotes');
+            req.body.context.timestamp = '\'' + req.body.context.timestamp + '\'';
+            context.log('Quoted timestamp:', req.body.context);
+            if (! _.isString(req.body.context.timestamp)){
+                context.log('Timestamp needs replacing:');
+                req.body.context.timestamp = moment.utc().toISOString();
+                context.log('Replaced timestamp:', req.body.context);
+            }
+        }
+    }
     let validation = validator(req.body),
-    res = context.res;
+        res = context.res;
+
 
     context.log('Valid:', validation);
     let converter = new Converter();
