@@ -94,7 +94,7 @@ const AzureMetricAlarm = {
                 resourceType: {type: 'string', allowEmpty: false, required: true},
                 resourceRegion: {type: 'string', allowEmpty: false, required: true},
                 portalLink: {type: 'string', allowEmpty: false, required: true},
-                timestamp: {type: 'string', allowEmpty: false, required: true},
+                timestamp: {type: ['string', 'object'], allowEmpty: false, required: true},
                 id: {type: 'string', allowEmpty: false, required: true},
                 name: {type: 'string', allowEmpty: false, required: true},
                 description: {type: 'string', allowEmpty: true, required: true},
@@ -179,6 +179,7 @@ module.exports = function sanitise(event) {
             valid = revalidator.validate(event, AzureMetricAlarm, {additionalProperties: true});
             valid.alarm_schema = 'Azure Metric Alarm';
             valid.alarm_schema_version = 1.0;
+            valid.context.timestamp = JSON.stringify(valid.context.timestamp);  //Some azure alert timestamps come without quotes!!
         } else {
             valid.valid = false;
             valid.errors = 'Unrecognised Azure alarm type';
