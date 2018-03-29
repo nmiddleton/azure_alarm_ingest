@@ -4,6 +4,7 @@ const
     publisher = require('../tasks/publisher'),
     validator = require('../tasks/validator'),
     _         = require('../../lib/lodash.js'),
+    moment    = require('../../lib/moment.js'),
     Converter = require('../tasks/converter');
 
 exports.ingest = function (req, context) {
@@ -23,7 +24,6 @@ exports.ingest = function (req, context) {
     }
     let validation = validator(req.body),
         res = context.res;
-
 
     context.log('Valid:', validation);
     let converter = new Converter();
