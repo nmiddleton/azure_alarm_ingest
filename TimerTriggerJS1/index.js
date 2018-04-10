@@ -1,5 +1,5 @@
 const
-    http_request = require('./http_request');
+    http_request = require('./lib/http_request');
 
 module.exports = function (context, myTimer) {
     var timeStamp = new Date().toISOString().toString(),
