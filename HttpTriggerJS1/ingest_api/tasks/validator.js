@@ -17,7 +17,7 @@ const CAM_v2 = {
         category: {type: 'string', allowEmpty: false, required: true},
         message: {type: 'string', allowEmpty: false, required: true},
         informer: {type: 'string', allowEmpty: false, required: true},
-        occurred_at: {type: 'string', allowEmpty: false, required: true, format: 'date-time'},
+        occurred_at: {type: 'string', allowEmpty: false, required: true},
         //non-mandatory fields
         instance: {type: 'string', allowEmpty: false, required: false},
         domain: {type: 'object', allowEmpty: false, required: false},
