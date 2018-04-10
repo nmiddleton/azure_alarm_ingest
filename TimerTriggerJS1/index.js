@@ -5,7 +5,7 @@ module.exports = function (context, myTimer) {
     var timeStamp = new Date().toISOString().toString(),
         environment_config = {
             '32c4b0ff-af38-4b6f-8efc-d70cd1276b00+eastus2-compassalarmmanagement-eastus2webspace': {
-                tracer: 'Azure_TEST2-Non_Prod',
+                tracer: 'Azure_Shared_Services-Non_Prod',
                 name: 'Azure Shared Services Non-Prod Compass Alarm Tracer',
                 hostname: 'api.alarms.monitor.azure.compass-stage.thomsonreuters.com',
                 path: '/alarm-ingest',
