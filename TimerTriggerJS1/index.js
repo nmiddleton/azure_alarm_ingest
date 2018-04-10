@@ -4,7 +4,7 @@ const
 module.exports = function (context, myTimer) {
     var timeStamp = new Date().toISOString().toString(),
         environment_config = {
-            preprod: {
+            '32c4b0ff-af38-4b6f-8efc-d70cd1276b00+eastus2-compassalarmmanagement-eastus2webspace': {
                 tracer: 'Azure_TEST2-Non_Prod',
                 name: 'Azure Shared Services Non-Prod Compass Alarm Tracer',
                 hostname: 'api.alarms.monitor.azure.compass-stage.thomsonreuters.com',
@@ -27,10 +27,10 @@ module.exports = function (context, myTimer) {
             }
         },
         env_label;
-    if (process.env.hasOwnProperty('WEBSITE_SLOT_NAME')) {
-        env_label = process.env['WEBSITE_SLOT_NAME'].toLowerCase();
+    if (process.env.hasOwnProperty('WEBSITE_OWNER_NAME')) {
+        env_label = process.env['WEBSITE_OWNER_NAME'].toLowerCase();
     } else {
-        throw new Error('Could not get slot from env variable: WEBSITE_SLOT_NAME in ', process.env);
+        throw new Error('Could not get slot from env variable: WEBSITE_OWNER_NAME in ', process.env);
     }
     if (environment_config[env_label]) {
         tracer_config = environment_config[env_label];
