@@ -3,8 +3,8 @@
 const
     publisher = require('../tasks/publisher'),
     validator = require('../tasks/validator'),
-    _         = require('../../lib/lodash.js'),
-    moment    = require('../../lib/moment.js'),
+    _         = require('lodash'),
+    moment    = require('moment'),
     Converter = require('../tasks/converter');
 
 exports.ingest = function (req, context) {
