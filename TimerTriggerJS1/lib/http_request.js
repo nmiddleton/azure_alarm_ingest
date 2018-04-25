@@ -1,5 +1,5 @@
 const
-    q = require('../lib/q.js'),
+    q = require('q'),
     http = require('http');
 
 module.exports = function http_request(options, json_stringified_data) {
