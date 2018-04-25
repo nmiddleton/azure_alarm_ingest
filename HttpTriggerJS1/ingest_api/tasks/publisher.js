@@ -2,9 +2,9 @@
 
 const
     library = require('../lib'),
-    moment = require('../../lib/moment.min.js'),
-    q = require('../../lib/q.js'),
-    _ = require('../../lib/lodash.js'),
+    moment = require('moment'),
+    q = require('q'),
+    _ = require('lodash'),
     https = require('https');
 
 function SendToCam(cam_message, context) {
