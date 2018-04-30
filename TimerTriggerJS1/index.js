@@ -15,7 +15,7 @@ module.exports = function (context, myTimer) {
                 tracer: 'Azure_Shared_Services-Non_Prod_Support',
                 name: 'Azure Shared Services Non-Prod Compass Alarm Support Tracer',
                 hostname: 'compassalarmsupportppe.azurewebsites.net',
-                path: '/alarm-ingest',
+                path: '/api/alarm-ingest',
                 key: 'f6478c51b2734b49a438fefcea8c77da'
             },
             compassalarmingestprod: {
@@ -29,7 +29,7 @@ module.exports = function (context, myTimer) {
                 tracer: 'Azure_Shared_Services-Production_Support',
                 name: 'Azure Shared Services Production Compass Alarm Support Tracer',
                 hostname: 'compassalarmsupportprod.azurewebsites.net',
-                path: '/alarm-ingest',
+                path: '/api/alarm-ingest',
                 key: 'NOTSET'
             }
         },
