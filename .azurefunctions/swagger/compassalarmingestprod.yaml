@@ -2,13 +2,13 @@ swagger: '2.0'
 info:
   description: Alarm Ingest
   version: 1.0.0
-  title: Azure CAM Ingest
+  title: Azure CAM Ingest PROD
   contact:
     email: neil.middleton@tr.com
   license:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
-host: compassalarmingest.azurewebsites.net
+host: compassalarmingestprod.azurewebsites.net
 basePath: /api
 tags:
   - name: alarm
@@ -92,7 +92,7 @@ definitions:
       reporter: azure
       end_point_id: some_host_or_application_id
       alarm_type: host
-      status: '[ CRITICAL| WARNING | OK]'
+      status: 'CRITICAL'
       category: the_type_of_alarm
       message: Ignore this test from Azure
       informer: some_host_or_application_id
