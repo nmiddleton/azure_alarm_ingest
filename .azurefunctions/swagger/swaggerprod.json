@@ -1,7 +1,7 @@
 ﻿{
   "swagger": "2.0",
   "info": {
-    "description": "Alarm Ingest",
+    "description": "Compass Alarm Ingest for Production Applications",
     "version": "1.0.0",
     "title": "Azure CAM Ingest PROD",
     "contact": {
