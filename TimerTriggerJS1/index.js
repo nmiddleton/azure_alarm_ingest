@@ -5,30 +5,30 @@ module.exports = function (context, myTimer) {
     var timeStamp = new Date().toISOString().toString(),
         environment_config = {
             compassalarmingestppe: {
-                tracer: 'Azure_Shared_Services-Non_Prod',
-                name: 'Azure Shared Services Non-Prod Compass Alarm Tracer',
+                tracer: 'Azure_Shared_Services-Non_Prod_Ingest',
+                name: 'Azure Shared Services Non-Prod Compass Alarm Ingest Tracer',
                 hostname: 'api.alarms.monitor.azure.compass-stage.thomsonreuters.com',
                 path: '/alarm-ingest',
                 key: 'f6478c51b2734b49a438fefcea8c77da'
             },
             compassalarmsupportppe: {
-                tracer: 'Azure_Shared_Services-Non_Prod',
-                name: 'Azure Shared Services Non-Prod Compass Alarm Tracer',
-                hostname: 'api.alarms.monitor.azure.compass-stage.thomsonreuters.com',
+                tracer: 'Azure_Shared_Services-Non_Prod_Support',
+                name: 'Azure Shared Services Non-Prod Compass Alarm Support Tracer',
+                hostname: 'compassalarmingestsupport.azurewebsites.net',
                 path: '/alarm-ingest',
                 key: 'f6478c51b2734b49a438fefcea8c77da'
             },
             compassalarmingestprod: {
-                tracer: 'Azure_Shared_Services-Production',
-                name: 'Azure Shared Services Production Compass Alarm Tracer',
+                tracer: 'Azure_Shared_Services-Production_Ingest',
+                name: 'Azure Shared Services Production Compass Alarm Ingest Tracer',
                 hostname: 'api.alarms.monitor.azure.compass.thomsonreuters.com',
                 path: '/alarm-ingest',
                 key: 'NOTSET'
             },
             compassalarmsupportprod: {
-                tracer: 'Azure_Shared_Services-Production',
-                name: 'Azure Shared Services Production Compass Alarm Tracer',
-                hostname: 'api.alarms.monitor.azure.compass.thomsonreuters.com',
+                tracer: 'Azure_Shared_Services-Production_Support',
+                name: 'Azure Shared Services Production Compass Alarm Support Tracer',
+                hostname: 'compassalarmingestsupport.azurewebsites.net',
                 path: '/alarm-ingest',
                 key: 'NOTSET'
             }
