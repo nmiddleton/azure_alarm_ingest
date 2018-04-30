@@ -1,5 +1,5 @@
 const
-    q = require('../../lib/q.js'),
+    q = require('q'),
     https = require('https');
 
 module.exports = function https_request(options, json_stringified_data) {

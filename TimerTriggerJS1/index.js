@@ -4,17 +4,31 @@ const
 module.exports = function (context, myTimer) {
     var timeStamp = new Date().toISOString().toString(),
         environment_config = {
-            '32c4b0ff-af38-4b6f-8efc-d70cd1276b00+eastus2-compassalarmmanagement-eastus2webspace': {
+            compassalarmingestppe: {
                 tracer: 'Azure_Shared_Services-Non_Prod',
                 name: 'Azure Shared Services Non-Prod Compass Alarm Tracer',
                 hostname: 'api.alarms.monitor.azure.compass-stage.thomsonreuters.com',
                 path: '/alarm-ingest',
                 key: 'f6478c51b2734b49a438fefcea8c77da'
             },
-            prod: {
+            compassalarmsupportppe: {
+                tracer: 'Azure_Shared_Services-Non_Prod',
+                name: 'Azure Shared Services Non-Prod Compass Alarm Tracer',
+                hostname: 'api.alarms.monitor.azure.compass-stage.thomsonreuters.com',
+                path: '/alarm-ingest',
+                key: 'f6478c51b2734b49a438fefcea8c77da'
+            },
+            compassalarmingestprod: {
                 tracer: 'Azure_Shared_Services-Production',
                 name: 'Azure Shared Services Production Compass Alarm Tracer',
-                hostname: 'api.alarms.monitor.azure.compass-stage.thomsonreuters.com',
+                hostname: 'api.alarms.monitor.azure.compass.thomsonreuters.com',
+                path: '/alarm-ingest',
+                key: 'NOTSET'
+            },
+            compassalarmsupportprod: {
+                tracer: 'Azure_Shared_Services-Production',
+                name: 'Azure Shared Services Production Compass Alarm Tracer',
+                hostname: 'api.alarms.monitor.azure.compass.thomsonreuters.com',
                 path: '/alarm-ingest',
                 key: 'NOTSET'
             }
@@ -27,8 +41,8 @@ module.exports = function (context, myTimer) {
             }
         },
         env_label;
-    if (process.env.hasOwnProperty('WEBSITE_OWNER_NAME')) {
-        env_label = process.env['WEBSITE_OWNER_NAME'].toLowerCase();
+    if (process.env.hasOwnProperty('WEBSITE_SITE_NAME')) {
+        env_label = process.env['WEBSITE_SITE_NAME'].toLowerCase();
     } else {
         throw new Error('Could not get slot from env variable: WEBSITE_OWNER_NAME in ', process.env);
     }
