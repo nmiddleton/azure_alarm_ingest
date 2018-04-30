@@ -2,7 +2,7 @@ const
     q = require('q'),
     http = require('http');
 
-module.exports = function http_request(options, json_stringified_data) {
+module.exports = function http_request(options, json_stringified_data, context) {
     'use strict';
 
     let deferred = q.defer();
@@ -14,6 +14,7 @@ module.exports = function http_request(options, json_stringified_data) {
             response += data;
         });
         res.on('end', function () {
+            context.log('HTTP RESOLVED:', JSON.stringify(response, null,4));
             deferred.resolve({response:response,headers:res.headers, statusCode: res.statusCode});
         });
         res.on('error', function (error) {

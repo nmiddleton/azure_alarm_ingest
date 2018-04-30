@@ -4,7 +4,6 @@ const
     library = require('../lib'),
     moment = require('moment'),
     q = require('q'),
-    _ = require('lodash'),
     https = require('https');
 
 function SendToCam(cam_message, context) {
@@ -15,10 +14,6 @@ function SendToCam(cam_message, context) {
             'x-api-key': 'zOHtS8xIOE8In1uP7ghbP8jmUdVMvoMB4finmmPU'
         }
     };
-    _.set(cam_message, 'domain.provenance. AzureAlarmIngest', {
-        informed_at: new Date().toISOString(),
-        informer: 'azure_cam_function_app'
-    });
     var stringified_alarm = JSON.stringify(cam_message);
 
     options.headers['Content-Length'] = stringified_alarm.length;

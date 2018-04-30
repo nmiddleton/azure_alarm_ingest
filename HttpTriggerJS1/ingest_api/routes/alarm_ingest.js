@@ -37,9 +37,9 @@ exports.ingest = function (req, context) {
         });
         return body;
     }
-    
+
     let validation = validator(req.body),
-        res = context.res;
+    res = context.res;
 
     context.log('Valid:', validation);
     let converter = new Converter();
