@@ -30,6 +30,6 @@
   "noAnalyze": true,
   "license": "Apache",
   "engines": {
-    "node": "~0.10.0 || ~4.4.7"
+    "node": "~0.10.0 || ~6.11.14"
   }
 }
