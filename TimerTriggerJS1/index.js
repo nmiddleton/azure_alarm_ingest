@@ -23,14 +23,14 @@ module.exports = function (context, myTimer) {
                 name: 'Azure Shared Services Production Compass Alarm Ingest Tracer',
                 hostname: 'api.alarms.monitor.azure.compass.thomsonreuters.com',
                 path: '/alarm-ingest',
-                key: '71816bfa60404b478a3db6451afa5ed1'
+                key: 'e6ce57d2ae164e0aac653cc5262279d7'
             },
             compassalarmsupportprod: {
                 tracer: 'Azure_Shared_Services-Production_Support',
                 name: 'Azure Shared Services Production Compass Alarm Support Tracer',
                 hostname: 'compassalarmsupportprod.azurewebsites.net',
                 path: '/api/alarm-ingest',
-                key: '71816bfa60404b478a3db6451afa5ed1'
+                key: 'e6ce57d2ae164e0aac653cc5262279d7'
             }
         },
         tracer_config = {},
